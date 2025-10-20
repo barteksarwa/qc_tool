@@ -1,0 +1,40 @@
+﻿TECHNICAL_SUB_ENTITY_ID,TECHNICAL_SUB_ENTITY_NAME_P1,TECHNICAL_SUB_ENTITY_NAME_R1,ACTIVITY_ENTITY_NAME_P1,ACTIVITY_ENTITY_NAME_R1,TECHNICAL_ENTITY_NAME_P1,TECHNICAL_ENTITY_NAME_R1,AE_Name_Match,TE_Name_Match,UNIQUE_FIELD_NAME,P1_Present,R1_Present,_AE_NAME_norm_P1,_TE_NAME_norm_P1,PMASTER_NAME,PROJECT_NAME,_AE_NAME_norm_R1,_TE_NAME_norm_R1
+27552,Mero-2-DEV,Mero-2-DEV,Mero 2 DEV,Mero 2 DEV,Mero 2 DEV,Mero 2 DEV,✅,✅,Mero,✅,✅,mero 2 dev,mero 2 dev,Mero 2 DEV,Mero 2 DEV,mero 2 dev,mero 2 dev
+27557,Mero-3-DEV,Mero-3-DEV,Mero 3 DEV,Mero 3 DEV,Mero 3 DEV,Mero 3 DEV,✅,✅,Mero,✅,✅,mero 3 dev,mero 3 dev,Mero 3 DEV,Mero 3 DEV,mero 3 dev,mero 3 dev
+27566,Mero-4-DEV,Mero-4-DEV,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,✅,✅,Mero,✅,✅,mero 4 dev,mero 4 dev,Mero 4 DEV,Mero 4 DEV,mero 4 dev,mero 4 dev
+32201,Mero EPS3,Mero EPS3,Mero EWT DEV,Mero EWT DEV,Mero EWT DEV,Mero EWT DEV,✅,✅,Mero,✅,✅,mero ewt dev,mero ewt dev,Mero EWT DEV,Mero EWT DEV,mero ewt dev,mero ewt dev
+36325,Mero-4 HiSEP,Mero-4 HiSEP,Mero 4 Hi-Sep,Mero 4 Hi-Sep,Mero 4 Hi-Sep,Mero 4 Hi-Sep,✅,✅,Mero,✅,✅,mero 4 hi-sep,mero 4 hi-sep,Mero 4 Hi-Sep,Mero 4 Hi-Sep,mero 4 hi-sep,mero 4 hi-sep
+38421,Mero-3 HiSEP Pilot,Mero-3 HiSEP Pilot,Mero 3 Hi-Sep,Mero 3 Hi-Sep,Mero 3 Hi-Sep,Mero 3 Hi-Sep,✅,✅,Mero,✅,✅,mero 3 hi-sep,mero 3 hi-sep,Mero 3 Hi-Sep,Mero 3 Hi-Sep,mero 3 hi-sep,mero 3 hi-sep
+38423,Mero Post Lease,Mero Post Lease,Mero 1234 Post-Lease DEV,Mero 1234 Post-Lease DEV,Mero 1234 Post-Lease DEV,Mero 1234 Post-Lease DEV,✅,✅,Mero,✅,✅,mero 1234 post-lease dev,mero 1234 post-lease dev,Mero 1234 Post-Lease DEV,Mero 1234 Post-Lease DEV,mero 1234 post-lease dev,mero 1234 post-lease dev
+45409,Mero EPS2,Mero EPS2,Libra EWT NFA,Libra EWT NFA,Libra EWT NFA,Libra EWT NFA,✅,✅,Mero,✅,✅,libra ewt nfa,libra ewt nfa,Libra EWT NFA,Libra EWT NFA,libra ewt nfa,libra ewt nfa
+51459,Mero-1-NFA,Mero-1-NFA,Mero 1 NFA,Mero 1 NFA,Mero 1 NFA,Mero 1 NFA,✅,✅,Mero,✅,✅,mero 1 nfa,mero 1 nfa,Mero 1 NFA,Mero 1 NFA,mero 1 nfa,mero 1 nfa
+51466,Mero-1-Dev,Mero-1-Dev,Mero 1 DEV,Mero 1 DEV,Mero 1 DEV,Mero 1 DEV,✅,✅,Mero,✅,✅,mero 1 dev,mero 1 dev,Mero 1 DEV,Mero 1 DEV,mero 1 dev,mero 1 dev
+51470,DELETE (Mero-1-P7),DELETE (Mero-1-P7),Mero 1 NFA,Mero 1 NFA,Mero 1 NFA,Mero 1 NFA,✅,✅,Mero,✅,✅,mero 1 nfa,mero 1 nfa,Mero 1 NFA,Mero 1 NFA,mero 1 nfa,mero 1 nfa
+51553,Mero-2-NFA,Mero-2-NFA,Mero 2 NFA,Mero 2 NFA,Mero 2 NFA,Mero 2 NFA,✅,✅,Mero,✅,✅,mero 2 nfa,mero 2 nfa,Mero 2 NFA,Mero 2 NFA,mero 2 nfa,mero 2 nfa
+51799,Mero-1&2 PRM,Mero-1&2 PRM,Mero 1&2 PRM,Mero 1&2 PRM,Mero 1&2 PRM,Mero 1&2 PRM,✅,✅,Mero,✅,✅,mero 1&2 prm,mero 1&2 prm,Mero 1&2 PRM,Mero 1&2 PRM,mero 1&2 prm,mero 1&2 prm
+55865,Mero 1-2-3-4 Lic Ext,Mero 1-2-3-4 Lic Ext,Mero 5,Mero 5,Mero 1-2-3-4 Lic Ext,Mero 1-2-3-4 Lic Ext,✅,✅,Mero,✅,✅,mero 5,mero 1-2-3-4 lic ext,Mero 5,Mero 1-2-3-4 Lic Ext,mero 5,mero 1-2-3-4 lic ext
+57403,Mero-2 - 744,Mero-2 - 744,Mero 2 DEV,Mero 2 DEV,Mero 2 DEV,Mero 2 DEV,✅,✅,Mero,✅,✅,mero 2 dev,mero 2 dev,Mero 2 DEV,Mero 2 DEV,mero 2 dev,mero 2 dev
+57574,Mero-3-NFA,Mero-3-NFA,Mero 3 NFA,Mero 3 NFA,Mero 3 NFA,Mero 3 NFA,✅,✅,Mero,✅,✅,mero 3 nfa,mero 3 nfa,Mero 3 NFA,Mero 3 NFA,mero 3 nfa,mero 3 nfa
+57753,Mero-3&4 PRM,Mero-3&4 PRM,Mero 3&4 PRM,Mero 3&4 PRM,Mero 3&4 PRM,Mero 3&4 PRM,✅,✅,Mero,✅,✅,mero 3&4 prm,mero 3&4 prm,Mero 3&4 PRM,Mero 3&4 PRM,mero 3&4 prm,mero 3&4 prm
+58391,Mero-1-WWT-FAILED,Mero-1-WWT-FAILED,Mero 1 DEV,Mero 1 DEV,Mero 1 DEV,Mero 1 DEV,✅,✅,Mero,✅,✅,mero 1 dev,mero 1 dev,Mero 1 DEV,Mero 1 DEV,mero 1 dev,mero 1 dev
+58392,Mero-3-WWT-FAILED,Mero-3-WWT-FAILED,Mero 3 DEV,Mero 3 DEV,Mero 3 DEV,Mero 3 DEV,✅,✅,Mero,✅,✅,mero 3 dev,mero 3 dev,Mero 3 DEV,Mero 3 DEV,mero 3 dev,mero 3 dev
+58394,Mero-4-WWT-FAILED,Mero-4-WWT-FAILED,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,✅,✅,Mero,✅,✅,mero 4 dev,mero 4 dev,Mero 4 DEV,Mero 4 DEV,mero 4 dev,mero 4 dev
+60573,Mero FFD NFA,Mero FFD NFA,Mero FFD NFA,Mero FFD NFA,Mero FFD NFA,Mero FFD NFA,✅,✅,Mero,✅,✅,mero ffd nfa,mero ffd nfa,Mero FFD NFA,Mero FFD NFA,mero ffd nfa,mero ffd nfa
+61875,ZERO_MOVED_Mero-1 - PNW6,ZERO_MOVED_Mero-1 - PNW6,Mero 1 NFA,Mero 1 NFA,Mero 1 NFA,Mero 1 NFA,✅,✅,Mero,✅,✅,mero 1 nfa,mero 1 nfa,Mero 1 NFA,Mero 1 NFA,mero 1 nfa,mero 1 nfa
+66864,ZERO_MOVED_MERO-3-DEV-GASCIO,ZERO_MOVED_MERO-3-DEV-GASCIO,Mero 3 DEV,Americas Other ARPR Entries,Mero 3 DEV,,❌,❌,Mero,✅,✅,mero 3 dev,mero 3 dev,Americas Other ARPR Entries,,americas other arpr entries,
+72912,Mero-2-WWT-FAILED,Mero-2-WWT-FAILED,Mero 2 DEV,Mero 2 DEV,Mero 2 DEV,Mero 2 DEV,✅,✅,Mero,✅,✅,mero 2 dev,mero 2 dev,Mero 2 DEV,Mero 2 DEV,mero 2 dev,mero 2 dev
+72920,Mero-3 - MR33,Mero-3 - MR33,Mero 3 NFA,Mero 3 NFA,Mero 3 NFA,Mero 3 NFA,✅,✅,Mero,✅,✅,mero 3 nfa,mero 3 nfa,Mero 3 NFA,Mero 3 NFA,mero 3 nfa,mero 3 nfa
+72921,Mero-3 - MR29,Mero-3 - MR29,Mero 3 NFA,Mero 3 NFA,Mero 3 NFA,Mero 3 NFA,✅,✅,Mero,✅,✅,mero 3 nfa,mero 3 nfa,Mero 3 NFA,Mero 3 NFA,mero 3 nfa,mero 3 nfa
+72923,Mero-3 - MR20,Mero-3 - MR20,Mero 3 DEV,Mero 3 DEV,Mero 3 DEV,Mero 3 DEV,✅,✅,Mero,✅,✅,mero 3 dev,mero 3 dev,Mero 3 DEV,Mero 3 DEV,mero 3 dev,mero 3 dev
+72924,Mero-3 - MR32,Mero-3 - MR32,Mero 3 DEV,Mero 3 DEV,Mero 3 DEV,Mero 3 DEV,✅,✅,Mero,✅,✅,mero 3 dev,mero 3 dev,Mero 3 DEV,Mero 3 DEV,mero 3 dev,mero 3 dev
+72925,Mero-4 - 741,Mero-4 - 741,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,✅,✅,Mero,✅,✅,mero 4 dev,mero 4 dev,Mero 4 DEV,Mero 4 DEV,mero 4 dev,mero 4 dev
+72929,Mero-4 - MR37,Mero-4 - MR37,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,✅,✅,Mero,✅,✅,mero 4 dev,mero 4 dev,Mero 4 DEV,Mero 4 DEV,mero 4 dev,mero 4 dev
+72930,Mero-4 - 747,Mero-4 - 747,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,✅,✅,Mero,✅,✅,mero 4 dev,mero 4 dev,Mero 4 DEV,Mero 4 DEV,mero 4 dev,mero 4 dev
+72935,Mero-5-In License,Mero-5-In License,Mero 5,Mero 5,Mero 5 In License,Mero 5 In License,✅,✅,Mero,✅,✅,mero 5,mero 5 in license,Mero 5,Mero 5 In License,mero 5,mero 5 in license
+72936,Mero-4 - MR22,Mero-4 - MR22,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,✅,✅,Mero,✅,✅,mero 4 dev,mero 4 dev,Mero 4 DEV,Mero 4 DEV,mero 4 dev,mero 4 dev
+72938,Mero-5-Post License,Mero-5-Post License,Mero 5,Mero 5,Mero 5 Lic Ext,Mero 5 Lic Ext,✅,✅,Mero,✅,✅,mero 5,mero 5 lic ext,Mero 5,Mero 5 Lic Ext,mero 5,mero 5 lic ext
+72940,Mero-4 - MR01,Mero-4 - MR01,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,✅,✅,Mero,✅,✅,mero 4 dev,mero 4 dev,Mero 4 DEV,Mero 4 DEV,mero 4 dev,mero 4 dev
+72942,Mero-4-NFA,Mero-4-NFA,Mero 4 NFA,Mero 4 NFA,Mero 4 NFA,Mero 4 NFA,✅,✅,Mero,✅,✅,mero 4 nfa,mero 4 nfa,Mero 4 NFA,Mero 4 NFA,mero 4 nfa,mero 4 nfa
+72943,Mero-4 - MR24,Mero-4 - MR24,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,Mero 4 DEV,✅,✅,Mero,✅,✅,mero 4 dev,mero 4 dev,Mero 4 DEV,Mero 4 DEV,mero 4 dev,mero 4 dev
+78442,Libra C3 DEV,,Libra  C3 DEV,,Libra C3 DEV,,❌,❌,,✅,❌,libra  c3 dev,libra c3 dev,,,,
+<NA>,,,,Mero 1&2 Hi-Sep_Delete,,,❌,❌,Mero,❌,✅,,,Mero 1&2 Hi-Sep_Delete,,mero 1&2 hi-sep_delete,

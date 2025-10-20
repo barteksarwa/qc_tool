@@ -1,0 +1,39 @@
+﻿ACTIVITY_ENTITY_NAME,TECHNICAL_ENTITY_NAME,TECHNICAL_SUB_ENTITY_NAME,TECHNICAL_SUB_ENTITY_ID,R1_OBJECTIVE_NAME,R1_OBJECTIVE_ID,Line of Business,Business Domain,MIU,Reporting Entity,Planning Entity
+Libra  C3 DEV,Libra C3 DEV,Libra C3 DEV,78442,Libra C3 DEV,255002393,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Libra EWT NFA,Libra EWT NFA,Mero EPS2,45409,Mero EPS2,185000211,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 1 DEV,Mero 1 DEV,Mero-1-Dev,51466,Mero-1-Dev,175000210,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 1 DEV,Mero 1 DEV,Mero-1-WWT-FAILED,58391,Mero-1-WWT-FAILED,245002319,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 1 NFA,Mero 1 NFA,DELETE (Mero-1-P7),51470,DELETE (Mero-1-P7),225050565,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 1 NFA,Mero 1 NFA,Mero-1-NFA,51459,Mero-1-NFA,225050400,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 1 NFA,Mero 1 NFA,ZERO_MOVED_Mero-1 - PNW6,61875,ZERO_MOVED_Mero-1 - PNW6,245004311,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 1&2 PRM,Mero 1&2 PRM,Mero-1&2 PRM,51799,Mero-1&2 PRM,235002149,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 1234 Post-Lease DEV,Mero 1234 Post-Lease DEV,Mero Post Lease,38423,Mero Post Lease,175000692,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 2 DEV,Mero 2 DEV,Mero-2 - 744,57403,Mero-2 - 744,245001919,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 2 DEV,Mero 2 DEV,Mero-2-DEV,27552,Mero-2-DEV,175000212,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 2 DEV,Mero 2 DEV,Mero-2-WWT-FAILED,72912,Mero-2-WWT-FAILED,255002309,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 2 NFA,Mero 2 NFA,Mero-2-NFA,51553,Mero-2-NFA,235002116,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 3 DEV,Mero 3 DEV,Mero-3 - MR20,72923,Mero-3 - MR20,255002322,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 3 DEV,Mero 3 DEV,Mero-3 - MR32,72924,Mero-3 - MR32,255002324,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 3 DEV,Mero 3 DEV,Mero-3-DEV,27557,Mero-3-DEV,175000214,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 3 DEV,Mero 3 DEV,Mero-3-WWT-FAILED,58392,Mero-3-WWT-FAILED,245002321,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 3 DEV,Mero 3 DEV,ZERO_MOVED_MERO-3-DEV-GASCIO,66864,ZERO_MOVED_MERO-3-DEV-GASCIO,245005091,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 3 Hi-Sep,Mero 3 Hi-Sep,Mero-3 HiSEP Pilot,38421,Mero-3 HiSEP Pilot,195000123,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 3 NFA,Mero 3 NFA,Mero-3 - MR29,72921,Mero-3 - MR29,255002323,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 3 NFA,Mero 3 NFA,Mero-3 - MR33,72920,Mero-3 - MR33,255002325,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 3 NFA,Mero 3 NFA,Mero-3-NFA,57574,Mero-3-NFA,245001927,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 3&4 PRM,Mero 3&4 PRM,Mero-3&4 PRM,57753,Mero-3&4 PRM,245001925,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 4 DEV,Mero 4 DEV,Mero-4 - 741,72925,Mero-4 - 741,255002321,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 4 DEV,Mero 4 DEV,Mero-4 - 747,72930,Mero-4 - 747,255002320,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 4 DEV,Mero 4 DEV,Mero-4 - MR01,72940,Mero-4 - MR01,255002317,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 4 DEV,Mero 4 DEV,Mero-4 - MR22,72936,Mero-4 - MR22,255002318,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 4 DEV,Mero 4 DEV,Mero-4 - MR24,72943,Mero-4 - MR24,255002319,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 4 DEV,Mero 4 DEV,Mero-4 - MR37,72929,Mero-4 - MR37,255002316,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 4 DEV,Mero 4 DEV,Mero-4-DEV,27566,Mero-4-DEV,175000405,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 4 DEV,Mero 4 DEV,Mero-4-WWT-FAILED,58394,Mero-4-WWT-FAILED,245002318,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 4 Hi-Sep,Mero 4 Hi-Sep,Mero-4 HiSEP,36325,Mero-4 HiSEP,215004531,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 4 NFA,Mero 4 NFA,Mero-4-NFA,72942,Mero-4-NFA,255002307,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 5,Mero 1-2-3-4 Lic Ext,Mero 1-2-3-4 Lic Ext,55865,Mero 1-2-3-4 Lic Ext,175000695,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 5,Mero 5 In License,Mero-5-In License,72935,Mero-5-In License,255002308,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero 5,Mero 5 Lic Ext,Mero-5-Post License,72938,Mero-5-Post License,255002332,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero EWT DEV,Mero EWT DEV,Mero EPS3,32201,Mero EPS3,195000497,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero
+Mero FFD NFA,Mero FFD NFA,Mero FFD NFA,60573,Mero FFD NFA,245003799,UP Brazil (UPB),UPB Brazil,DW Brazil Libra,DW Brazil-Libra,Mero

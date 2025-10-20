@@ -71,7 +71,7 @@ QComboBox QAbstractItemView {
 QPushButton {
     background: rgba(0, 80, 140, 230);
     color: white;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.35); /* was: none */
     border-radius: 8px;
     padding: 10px 20px;
     font-size: 14px;
@@ -80,11 +80,32 @@ QPushButton {
 
 QPushButton:hover {
     background: rgba(0, 100, 170, 240);
+    border-color: rgba(255, 255, 255, 0.55);
 }
 
 QPushButton:pressed {
     background: rgba(0, 60, 110, 240);
+    border-color: rgba(255, 255, 255, 0.25);
 }
+
+/* Clear All button */
+QPushButton#BtnClearAll {
+    background: rgba(200, 40, 40, 0.95);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.35); /* was: none */
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-weight: bold;
+}
+QPushButton#BtnClearAll:hover {
+    background: rgba(220, 60, 60, 1.0);
+    border-color: rgba(255, 255, 255, 0.55);
+}
+QPushButton#BtnClearAll:pressed {
+    background: rgba(160, 30, 30, 1.0);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
 
 /* ---------- Tables ---------- */
 QHeaderView::section {
@@ -132,4 +153,93 @@ QToolTip {
     padding: 6px;
     border-radius: 6px;
     font-size: 12px;
+}
+
+
+/* ============================================================
+   Multi-select PRODUCTS filter (QToolButton + QMenu)
+   ============================================================ */
+
+/* The button itself (matches QComboBox look) */
+QToolButton#ProductMulti {
+    background: rgba(255, 255, 255, 220);
+    color: #222;
+    border: 1px solid rgba(0, 0, 0, 80);
+    border-radius: 6px;
+    padding: 6px 28px 6px 10px;   /* leave room for the menu indicator (chevron) */
+    text-align: left;             /* align text like a dropdown */
+}
+
+QToolButton#ProductMulti:hover {
+    border: 1px solid rgba(0, 70, 130, 150);
+}
+
+QToolButton#ProductMulti:pressed {
+    background: rgba(245, 245, 245, 230);
+}
+
+/* Menu indicator (the little arrow on the right) */
+QToolButton#ProductMulti::menu-indicator {
+    subcontrol-origin: padding;
+    subcontrol-position: right center;
+    padding-right: 8px;           /* nudge arrow inward */
+}
+
+/* The popup menu */
+QMenu#ProductMenu {
+    background: #ffffff;
+    color: #222;
+    border: 1px solid rgba(0, 0, 0, 80);
+    border-radius: 6px;
+    padding: 6px 0;               /* top/bottom breathing space */
+}
+
+/* Menu items (actions) */
+QMenu#ProductMenu::item {
+    padding: 6px 32px 6px 28px;   /* space on left for the check indicator */
+    background: transparent;
+    color: #222;
+}
+
+QMenu#ProductMenu::item:selected {
+    background: rgba(0, 100, 170, 0.18);
+    color: #000;
+}
+
+QMenu#ProductMenu::item:disabled {
+    color: rgba(0, 0, 0, 0.35);
+}
+
+/* Checked state highlight (in addition to the checkmark) */
+QMenu#ProductMenu::item:checked {
+    background: rgba(0, 100, 170, 0.12);
+    font-weight: 600;
+}
+
+QMenu#ProductMenu::item:checked:selected {
+    background: rgba(0, 100, 170, 0.28);
+}
+
+/* The little checkbox indicator for checkable actions */
+QMenu#ProductMenu::indicator {
+    width: 16px;
+    height: 16px;
+    /* keep default OS checkmark; we just size/space it */
+    /* You can also replace with custom images if you prefer:
+       image: url(:/icons/check.svg);
+    */
+    margin-left: 8px;
+    margin-right: 6px;
+}
+
+/* Optional: a subtle “unchecked box” feel without custom images */
+QMenu#ProductMenu::indicator:non-exclusive:unchecked {
+    /* Not all Qt styles honor background/border here; selection coloring handles visibility. */
+}
+
+/* Separator style (between "Select All" / "Clear All" and the list) */
+QMenu#ProductMenu::separator {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.12);
+    margin: 6px 8px;
 }
