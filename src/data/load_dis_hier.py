@@ -1,8 +1,8 @@
-# src/data/loadersanaplan.py
+# src/data/loadersanaplanhier.py
 
 import pandas as pd
 
-class LoaderAnaplanDIS:
+class LoaderAnaplanHier:
     """
     Anaplan DIS loader.
     TODO: implement schema & transformations.
