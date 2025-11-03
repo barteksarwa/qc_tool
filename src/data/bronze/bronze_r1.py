@@ -103,7 +103,7 @@ class R1Loader:
             raise ValueError("Data not loaded. Run load_data() first.")
 
         group_cols = [
-            'TECHNICAL_SUB_ENTITY_ID', 'EQUITY_SHARE', 'PRODUCT_STREAM', 'PRODUCT',
+            'TECHNICAL_SUB_ENTITY_ID', 'TECHNICAL_SUB_ENTITY_NAME', 'EQUITY_SHARE', 'PRODUCT_STREAM', 'PRODUCT',
             'UNCERTAINTY', 'VALUATION', 'CUT_OFF', 'APPROVAL'
         ]
 

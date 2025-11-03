@@ -53,9 +53,9 @@ def load_p1_hierarchy_from_file(path: str, sheet_name: str | int | None = 0) -> 
     Force a single sheet (default first) to avoid pandas dict return.
     """
     try:
-        from src.data.load_p1_hier import LoaderP1Hierarchy  # preferred
+        from src.data.bronze.bronze_p1_hier import LoaderP1Hierarchy  # preferred
     except Exception:
-        from src.data.load_p1_hier import LoaderP1Hierarchy            # fallback
+        from src.data.bronze.bronze_p1_hier import LoaderP1Hierarchy            # fallback
 
     sheet = 0 if sheet_name in (None, "", "None") else sheet_name
     loader = LoaderP1Hierarchy(path, sheet_name=sheet)
@@ -117,9 +117,9 @@ def load_r1_hierarchy_from_file(path: str) -> Tuple[pd.DataFrame, str]:
     derive a hierarchy from r1.df. Returns (df, method_used).
     """
     try:
-        from src.data.load_r1 import R1Loader  # prefer package import
+        from src.data.bronze.bronze_r1 import R1Loader  # prefer package import
     except Exception:
-        from src.data.load_r1 import R1Loader
+        from src.data.bronze.bronze_r1 import R1Loader
     except Exception as exc:
         raise ImportError("Could not import R1Loader (expected module 'loaders_r1').") from exc
 

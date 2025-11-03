@@ -18,6 +18,22 @@ class LoaderP1TSE:
     def load_p1tse(self) -> pd.DataFrame:
         print(f"📂 Loading data from: {self.file_path}")
         df = pd.read_excel(self.file_path)
+        
+
+        if 'TSE ID' in df.columns and 'TECHNICAL_SUB_ENTITY_ID' not in df.columns:
+            df['TECHNICAL_SUB_ENTITY_ID'] = (
+                df['TSE ID'].astype(str).str.strip().str.replace(r'\.0$', '', regex=True)
+            )
+
+        # Normalize Name (try common header spellings)
+        possible_name_cols = ['TSE name', 'TSE Name', 'TSE NAME',
+                            'TECHNICAL SUB ENTITY NAME', 'TECHNICAL_SUB_ENTITY_NAME']
+        name_col_found = next((c for c in possible_name_cols if c in df.columns), None)
+        df['TECHNICAL_SUB_ENTITY_NAME'] = (
+            df[name_col_found].astype(str).str.strip() if name_col_found else pd.NA
+        )
+
+
         if 'Uncertainty/Valuation' in df.columns:
             # FIX: Better handling of Uncertainty/Valuation splitting
             def split_uncertainty_valuation(value):
@@ -110,124 +126,153 @@ class LoaderP1TSE:
 
 
     def extract_production_data(self) -> pd.DataFrame:
+        """
+        Build annualized P1 production at TSE level and KEEP:
+        - TECHNICAL_SUB_ENTITY_ID
+        - TECHNICAL_SUB_ENTITY_NAME
+        so the UI can display TSE Name reliably.
+
+        Steps:
+        1) Identify production columns (01. .. 22.)
+        2) Melt wide -> long with ID + NAME kept in id_vars
+        3) Aggregate to annual (average if multiple months, else keep as-is)
+        4) Pivot years to columns
+        5) Parse Production_Metric into PRODUCT / STREAM / EQUITY / CUT_OFF / TYPE
+        6) Multiply by days in year
+        7) Return tidy dataframe with ID + NAME + attributes + years
+        """
         if self.df_transposed is None:
             self.load_p1tse()
-        
-        # print("🔄 Extracting production data...")
 
-        # --- Identify production columns (e.g. '01. Cond AfS...' to '22. Gas F&L...') ---
+        df = self.df_transposed.copy()
+
+        # Ensure normalized TECHNICAL_SUB_ENTITY_ID exists (fallback from 'TSE ID')
+        if 'TECHNICAL_SUB_ENTITY_ID' not in df.columns and 'TSE ID' in df.columns:
+            df['TECHNICAL_SUB_ENTITY_ID'] = (
+                df['TSE ID'].astype(str).str.strip().str.replace(r'\.0$', '', regex=True)
+            )
+
+        # --- Identify production columns (e.g. '01. Cond ...' to '22. Gas ...') ---
         production_columns = []
         for i in range(1, 23):
             pattern = f"^{i:02d}\\."
-            matching_cols = [col for col in self.df_transposed.columns if re.match(pattern, str(col))]
+            matching_cols = [col for col in df.columns if re.match(pattern, str(col))]
             production_columns.extend(matching_cols)
-
-        metadata_cols = ['TSE ID', 'UNCERTAINTY', 'VALUATION', 'Year']
-        missing_metadata = [col for col in metadata_cols if col not in self.df_transposed.columns]
-        if missing_metadata:
-            print(f"⚠️  Warning: Missing metadata columns: {missing_metadata}")
-            metadata_cols = [col for col in metadata_cols if col in self.df_transposed.columns]
 
         if not production_columns:
             print("❌ No production columns found matching the pattern '01.' to '22.'")
             return pd.DataFrame()
 
-        # print(f"📊 Found {len(production_columns)} production columns")
+        # --- Metadata columns to carry through ---
+        # Keep both normalized ID and the original TSE ID (handy for debugging)
+        metadata_cols = [
+            'TECHNICAL_SUB_ENTITY_ID',
+            'TECHNICAL_SUB_ENTITY_NAME',
+            'TSE ID',
+            'UNCERTAINTY',
+            'VALUATION',
+            'Year'
+        ]
+        missing_metadata = [c for c in metadata_cols if c not in df.columns]
+        if missing_metadata:
+            print(f"⚠️  Warning: Missing metadata columns: {missing_metadata}")
+        metadata_cols = [c for c in metadata_cols if c in df.columns]
 
-        # --- Melt from wide to long format (one row per production metric per month) ---
+        # --- Melt to long ---
         df_melted = pd.melt(
-            self.df_transposed,
+            df,
             id_vars=metadata_cols,
             value_vars=production_columns,
             var_name='Production_Metric',
             value_name='Value'
         )
 
-        # Remove ratio columns and convert values to numeric
+        # Remove ratio rows and cast to numeric
         df_melted = df_melted[~df_melted['Production_Metric'].str.contains('ratio', case=False, na=False)]
         df_melted['Value'] = pd.to_numeric(df_melted['Value'], errors='coerce')
 
-        # print("Melted dataframe preview:")
-        # print(df_melted.head(10))
-
-        # --- Extract year number (e.g. '2025 01' → '2025') ---
+        # --- Extract 4-digit year from 'Year' ---
         df_melted['YearOnly'] = df_melted['Year'].astype(str).str.extract(r'(\d{4})')[0]
 
-        # --- COUNT how many entries (months) exist for each year per metric ---
+        # --- Aggregate to annual (month-aware averaging) ---
+        group_keys = [c for c in [
+            'TECHNICAL_SUB_ENTITY_ID',
+            'TECHNICAL_SUB_ENTITY_NAME',
+            'TSE ID',
+            'UNCERTAINTY',
+            'VALUATION',
+            'Production_Metric',
+            'YearOnly'
+        ] if c in df_melted.columns]
+
         counts = (
             df_melted
-            .groupby(['TSE ID', 'UNCERTAINTY', 'VALUATION', 'Production_Metric', 'YearOnly'])
+            .groupby(group_keys)
             .size()
             .reset_index(name='MonthCount')
         )
 
-        # --- AGGREGATE monthly values by summing ---
         df_annual = (
             df_melted
-            .groupby(['TSE ID', 'UNCERTAINTY', 'VALUATION', 'Production_Metric', 'YearOnly'], as_index=False)
+            .groupby(group_keys, as_index=False)
             .agg({'Value': 'sum'})
-            .merge(counts, on=['TSE ID', 'UNCERTAINTY', 'VALUATION', 'Production_Metric', 'YearOnly'])
+            .merge(counts, on=group_keys, how='left')
         )
 
-        # --- NEW LOGIC: Adjust based on available months ---
-        # If multiple months exist, average over those months
-        # If only one record, keep value as-is
         df_annual['Value'] = df_annual.apply(
-            lambda r: r['Value'] / r['MonthCount'] if r['MonthCount'] > 1 else r['Value'],
+            lambda r: r['Value'] / r['MonthCount'] if r['MonthCount'] and r['MonthCount'] > 1 else r['Value'],
             axis=1
         )
 
-        # --- Pivot to have years as columns ---
-        df_pivoted = df_annual.pivot_table(
-            index=['TSE ID', 'UNCERTAINTY', 'VALUATION', 'Production_Metric'],
-            columns='YearOnly',
-            values='Value'
-        ).reset_index()
+        # --- Pivot years to columns (keep ID + NAME in index) ---
+        index_cols = [c for c in [
+            'TECHNICAL_SUB_ENTITY_ID',
+            'TECHNICAL_SUB_ENTITY_NAME',
+            'TSE ID',
+            'UNCERTAINTY',
+            'VALUATION',
+            'Production_Metric'
+        ] if c in df_annual.columns]
 
-        # print("✅ Annualized pivoted dataframe preview:")
-        # print(df_pivoted.head(10))
-        # print("Numeric dtypes preview:")
-        # print(df_pivoted.select_dtypes(include=['number']).dtypes.head())
+        df_pivoted = (
+            df_annual
+            .pivot_table(index=index_cols, columns='YearOnly', values='Value')
+            .reset_index()
+        )
 
-        # # --- Parse Production_Metric into structured fields ---
-        # print("🔍 Parsing Production_Metric column...")
+        # --- Parse Production_Metric into structured fields ---
         metric_components = df_pivoted['Production_Metric'].apply(self._parse_production_metric)
+        df_pivoted['PRODUCT']        = metric_components.apply(lambda x: x.get('PRODUCT', ''))
+        df_pivoted['EQUITY_SHARE']   = metric_components.apply(lambda x: x.get('EQUITY_SHARE', ''))
+        df_pivoted['PRODUCT_STREAM'] = metric_components.apply(lambda x: x.get('PRODUCT_STREAM', ''))
+        df_pivoted['CUT_OFF']        = metric_components.apply(lambda x: x.get('CUT_OFF', ''))
+        df_pivoted['TYPE']           = metric_components.apply(lambda x: x.get('TYPE', ''))
 
-        df_pivoted['PRODUCT'] = metric_components.apply(lambda x: x['PRODUCT'])
-        df_pivoted['EQUITY_SHARE'] = metric_components.apply(lambda x: x['EQUITY_SHARE'])
-        df_pivoted['PRODUCT_STREAM'] = metric_components.apply(lambda x: x['PRODUCT_STREAM'])
-        df_pivoted['CUT_OFF'] = metric_components.apply(lambda x: x['CUT_OFF'])
-        df_pivoted['TYPE'] = metric_components.apply(lambda x: x['TYPE'])
-
-                # --- Function to determine days in a year (handles leap years) ---
+        # --- Multiply by number of days in year ---
         def get_days_in_year(year):
             try:
-                year_int = int(year)
-                # Leap year: divisible by 4, but not by 100 unless also by 400
-                if (year_int % 4 == 0 and year_int % 100 != 0) or (year_int % 400 == 0):
-                    return 366
-                return 365
+                y = int(year)
+                return 366 if ((y % 4 == 0 and y % 100 != 0) or (y % 400 == 0)) else 365
             except (ValueError, TypeError):
                 print(f"Warning: Invalid year '{year}', using 365 days as default")
                 return 365
 
-        # --- Reorder columns and apply correct days-in-year multiplier ---
-        year_columns = [col for col in df_pivoted.columns if col not in 
-                       ['TSE ID', 'UNCERTAINTY', 'VALUATION', 'Production_Metric', 
-                        'PRODUCT', 'EQUITY_SHARE', 'PRODUCT_STREAM', 'CUT_OFF', 'TYPE']]
-        for year_col in year_columns:
-            days = get_days_in_year(year_col)
-            df_pivoted[year_col] = df_pivoted[year_col] * days
-            # print(f"Applied {days} days for year {year_col}")
-        
-        final_columns = ['TSE ID', 'UNCERTAINTY', 'VALUATION', 
-                        'PRODUCT', 'EQUITY_SHARE', 'PRODUCT_STREAM', 'CUT_OFF', 'TYPE'] + year_columns
+        # Strictly treat only 4-digit columns as year columns
+        year_columns = [c for c in df_pivoted.columns if str(c).isdigit()]
+        for y in year_columns:
+            df_pivoted[y] = df_pivoted[y] * get_days_in_year(y)
 
-        df_final = df_pivoted[final_columns]
+        # --- Final tidy selection ---
+        final_columns = [
+            'TECHNICAL_SUB_ENTITY_ID', 'TECHNICAL_SUB_ENTITY_NAME',
+            *(['TSE ID'] if 'TSE ID' in df_pivoted.columns else []),
+            'UNCERTAINTY', 'VALUATION',
+            'PRODUCT', 'EQUITY_SHARE', 'PRODUCT_STREAM', 'CUT_OFF', 'TYPE'
+        ] + year_columns
 
+        df_final = df_pivoted[[c for c in final_columns if c in df_pivoted.columns]].copy()
+        print(df_final.head())
         self.df_production = df_final
-        # print(f"✅ Production data extracted: {len(df_final)} rows, {len(df_final.columns)} columns")
-
         return self.df_production
 
 

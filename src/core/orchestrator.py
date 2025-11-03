@@ -5,9 +5,9 @@ import os
 import pandas as pd
 
 # loaders
-from src.data.load_p1_tse import LoaderP1TSE
-from src.data.load_p1_hier import LoaderP1Hierarchy
-from src.data.load_r1 import R1Loader
+from src.data.bronze.bronze_p1_tse import LoaderP1TSE
+from src.data.bronze.bronze_p1_hier import LoaderP1Hierarchy
+from src.data.bronze.bronze_r1 import R1Loader
 
 # models
 from src.data.models.tse_compare import TSEComparator
